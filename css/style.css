@@ -1,0 +1,127 @@
+/* variables */
+:root {
+    --subdued-color: hsl(200, 100%, 50%);
+    --text-color: hsl(200, 100%, 20%);
+    --bg-color: #f3f3f3;
+    --avatar-size: 50px;
+    --grid-gap: 1rem;
+    --group-header-spacing: 1rem;
+    --main-padding: .75rem;
+}
+
+*, 
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:  var(--bg-color);
+    color: var(--text-color);
+}
+
+.group-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--subdued-color);
+    margin-bottom: var(--grid-gap);
+    padding: var(--main-padding);
+
+}
+
+.notification-section {
+    margin-bottom: 2rem;
+}
+
+.notification-section:last-child {
+    margin-bottom: 0;
+}
+
+
+.group-header .group-date {
+    color: var(--subdued-color);
+}
+
+.notification-grid {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: var(--grid-gap);
+    max-width: 700px;
+    margin: 0 auto;
+}
+  
+.notification-grid > .avatar > img {
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.notification-grid > .avatar {
+    position: relative;
+}
+
+.notification-grid > .avatar::before {
+    content: '';
+    position: absolute;
+    background-color: var(--subdued-color);
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    margin: 0 auto;
+    height: var(--grid-gap);
+    width: 1px;
+    z-index: -1;
+}
+
+
+.notification-grid > .avatar::after {
+    content: '';
+    position: absolute;
+    background-color: var(--subdued-color);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 100%;
+    width: 1px;
+    z-index: -1;
+}
+
+.notification-grid > .avatar:nth-last-child(2)::after {
+    display: none;
+}   
+
+.notification-card {
+    background-color: white;
+    border: 1px solid var(--subdued-color);
+    border-radius: .25rem;
+    padding: var(--main-padding);
+}
+
+.notification-card .notification-header {
+    display: flex;
+}
+
+.notification-card .notification-header svg  {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.notification-card  .notification-header svg > path {
+    fill: var(--subdued-color);
+}
+
+.notification-card .notification-header .notification-title {
+    flex-grow: 1;
+    font-size: 1.1rem;
+}
+
+.notification-card .notification-header .notification-time {
+    color: var(--subdued-color);
+}
+
+.notification-card .notification-content {
+    background-color: #f3f3f3;
+    padding: .25rem;
+    border-radius: .25rem;
+    margin-top: 10px;
+}
